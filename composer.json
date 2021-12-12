@@ -2,7 +2,6 @@
     "name": "sachkov/lenvendo_console_lib",
     "type": "library",
     "version":"1.0.1",
-    "minimum-stability":"stable",
     "description": "Simple console library for test task",
     "license": "MIT",
     "authors": [
