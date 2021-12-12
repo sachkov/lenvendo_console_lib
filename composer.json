@@ -1,0 +1,16 @@
+{
+    "name": "sachkov/lenvendo_console_lib",
+    "type": "library",
+    "version":"1.0.1",
+    "description": "Simple console library for test task",
+    "license": "MIT",
+    "authors": [
+        {"name": "Sachkov Yurii", "email": "sachkov@live.com"}
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": { "sachkov\\lenvendoconsolelib\\": "src" }
+    }
+}
