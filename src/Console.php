@@ -6,7 +6,8 @@ class Console
     use OutputTrait;
 
     protected string $scriptName = '';
-    protected string $commandName = 'Describe';
+    protected string $className = 'Describe';
+    protected string $commandName = '';
     protected array $arguments = [];
     protected array $params = [];
     protected array $errors = [];
@@ -45,8 +46,9 @@ class Console
             // имя команды
             if($num == 1){
                 //if(!$str) continue;
+                $this->commandName = $str;
                 $str = $this->validateString($str);
-                $this->commandName = $this->toCamel($str);
+                $this->className = $this->toCamel($str);
                 continue;
             }
 
@@ -79,23 +81,23 @@ class Console
         }
 
         if(isset($this->arguments[0]) && $this->arguments[0] == 'help'){
-            $this->arguments = [0=>$this->commandName];
-            $this->commandName = 'Help';
+            $this->arguments = [0=>$this->className];
+            $this->className = 'Help';
         }
     }
 
     public function handle()
     {
         // Поиск обработчика команды
-        $internalClass = __NAMESPACE__.'\Commands\\'.$this->commandName;
-        $externalClass = self::APP_NAMESPACE.$this->commandName;
+        $internalClass = __NAMESPACE__.'\Commands\\'.$this->className;
+        $externalClass = self::APP_NAMESPACE.$this->className;
         // сначала ищем команду в библиотеке, потом в приложении
         if(class_exists($internalClass)){
             $command = new $internalClass($this);
         }elseif(class_exists($externalClass)){
             $command = new $externalClass($this);
         }else{
-            $this->echoR('Команда '.$this->commandName.' не найдена.');
+            $this->echoR('Команда '.$this->className.' не найдена.');
             return false;
         }
 
@@ -115,6 +117,11 @@ class Console
     public function getPath():string
     {
         return $this->path;
+    }
+
+    public function getCommandName():string
+    {
+        return $this->commandName;
     }
 
     public function hasErrors()
