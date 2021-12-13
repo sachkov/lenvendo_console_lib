@@ -23,7 +23,7 @@ class Help extends AbstractCommand
             return false;
         }
         // Поиск обработчика команды
-        $internalClass = __NAMESPACE__.'\Commands\\'.$this->args[0];
+        $internalClass = __NAMESPACE__.'\\'.$this->args[0];
         $externalClass = $this->console::APP_NAMESPACE.$this->args[0];
         // сначала ищем команду в библиотеке, потом в приложении
         if(class_exists($internalClass)){
@@ -31,7 +31,7 @@ class Help extends AbstractCommand
         }elseif(class_exists($externalClass)){
             $command = new $externalClass($this->console);
         }else{
-            $this->echoR('Команда не найдена.');
+            $this->echoR('Команда '.$this->args[0].' не найдена.');
             return false;
         }
 

@@ -8,6 +8,7 @@ class Create extends AbstractCommand
     public $name = 'Создание команды';
     public $description = 'Создает класс - обработчик команды';
     protected $path = '';
+    protected $console;
 
     function __construct(clib\Console $com)
     {
@@ -57,6 +58,7 @@ class Create extends AbstractCommand
     private function getTree($path)
     {
         $res = [];
+        if(!is_dir($path)) return $res;
         $dd = opendir($path);
         while($sFile = readdir($dd)){
             if($sFile=='.' || $sFile=='..')continue;
@@ -76,9 +78,11 @@ class Create extends AbstractCommand
     private function create(string $class, string $name, string $desc)
     {
         $content = '<?php
-namespace sachkov\lenvendoconsolelib\Commands;
+namespace '.substr($this->console::APP_NAMESPACE,0,-1).';
 
-class '.$class.' extends AbstractCommand
+use sachkov\lenvendoconsolelib\Commands as libCommands;
+        
+class '.$class.' extends libCommands\AbstractCommand
 {
     public $name = "'.$name.'";
     public $description = "'.$desc.'";

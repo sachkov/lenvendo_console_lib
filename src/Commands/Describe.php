@@ -31,6 +31,7 @@ class Describe extends AbstractCommand
     private function getTree($path)
     {
         $res = [];
+        if(!is_dir($path)) return $res;
         $dd = opendir($path);
         while($sFile = readdir($dd)){
             if($sFile=='.' || $sFile=='..')continue;

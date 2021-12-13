@@ -5,7 +5,7 @@ use sachkov\lenvendoconsolelib as clib;
 
 abstract class AbstractCommand
 {
-    use Console\OutputTrait;
+    use clib\OutputTrait;
 
     protected $args = [];
     protected $params = [];

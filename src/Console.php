@@ -22,7 +22,7 @@ class Console
         // Предполагаем что вызванный в консоли файл лежит в корне проекта
         $basePath = $root."/app/Console/Commands/";
         
-        $this->path = realpath($basePath);
+        $this->path = realpath($basePath)?realpath($basePath):$basePath;
     }
 
     /**
@@ -78,7 +78,7 @@ class Console
             $this->arguments[] = $this->validateString($str);
         }
 
-        if($this->arguments[0] == 'help'){
+        if(isset($this->arguments[0]) && $this->arguments[0] == 'help'){
             $this->arguments = [0=>$this->commandName];
             $this->commandName = 'Help';
         }
