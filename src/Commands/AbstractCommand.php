@@ -1,7 +1,7 @@
 <?php
-namespace App\Console\Commands;
+namespace sachkov\lenvendoconsolelib\Commands;
 
-use App\Console;
+use sachkov\lenvendoconsolelib as clib;
 
 abstract class AbstractCommand
 {
@@ -12,7 +12,7 @@ abstract class AbstractCommand
     public $name = '';
     public $description = '';
 
-    function __construct(Console\Console $com)
+    function __construct(clib\Console $com)
     {
         $this->args = $com->getArgs();
         $this->params = $com->getParams();

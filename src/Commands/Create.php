@@ -1,7 +1,7 @@
 <?php
-namespace App\Console\Commands;
+namespace sachkov\lenvendoconsolelib\Commands;
 
-use App\Console;
+use sachkov\lenvendoconsolelib as clib;
 
 class Create extends AbstractCommand
 {
@@ -9,7 +9,7 @@ class Create extends AbstractCommand
     public $description = 'Создает класс - обработчик команды';
     protected $path = '';
 
-    function __construct(Console\Console $com)
+    function __construct(clib\Console $com)
     {
         parent::__construct($com);
 
@@ -76,7 +76,7 @@ class Create extends AbstractCommand
     private function create(string $class, string $name, string $desc)
     {
         $content = '<?php
-namespace App\Console\Commands;
+namespace sachkov\lenvendoconsolelib\Commands;
 
 class '.$class.' extends AbstractCommand
 {

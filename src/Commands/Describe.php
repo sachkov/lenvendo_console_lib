@@ -1,7 +1,7 @@
 <?php
-namespace App\Console\Commands;
+namespace sachkov\lenvendoconsolelib\Commands;
 
-use App\Console;
+use sachkov\lenvendoconsolelib as clib;
 
 class Describe extends AbstractCommand
 {
@@ -9,7 +9,7 @@ class Describe extends AbstractCommand
     public $name = 'Описание команд';
     public $description = 'Отображает наименование и описание всех команд.';
 
-    function __construct(Console\Console $com)
+    function __construct(clib\Console $com)
     {
         parent::__construct($com);
 

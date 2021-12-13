@@ -1,5 +1,5 @@
 <?php
-namespace App\Console;
+namespace sachkov\lenvendoconsolelib;
 
 class Console
 {

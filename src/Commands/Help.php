@@ -1,14 +1,14 @@
 <?php
-namespace App\Console\Commands;
+namespace sachkov\lenvendoconsolelib\Commands;
 
-use App\Console;
+use sachkov\lenvendoconsolelib as clib;
 
 class Help extends AbstractCommand
 {
     public $name = 'Помощь';
     public $description = 'Отображает наименование и описание команды';
 
-    function __construct(Console\Console $com)
+    function __construct(clib\Console $com)
     {
         parent::__construct($com);
 
