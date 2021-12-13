@@ -1,5 +1,5 @@
 {
-    "name": "sachkov/lenvendo_console_lib",
+    "name": "sachkov/lenvendoconsolelib",
     "type": "library",
     "version":"1.0.1",
     "description": "Simple console library for test task",
