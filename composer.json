@@ -1,7 +1,7 @@
 {
     "name": "sachkov/lenvendoconsolelib",
     "type": "library",
-    "version":"1.0.3",
+    "version":"1.0.4",
     "description": "Simple console library for test task",
     "license": "MIT",
     "authors": [
